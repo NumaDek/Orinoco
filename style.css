@@ -1,0 +1,64 @@
+body {
+  background-color: #f3e9f1;
+}
+
+.shop {
+  box-shadow: 0px 0px 12px #bbb;
+  margin-top: 30px;
+  min-height: 600px;
+}
+
+#logo {
+  max-height: 180px;
+}
+
+.legal {
+  text-align: center;
+  font-style: italic;
+  font-size: 0.8em;
+}
+.legal--heading {
+  margin-top: 30px;
+}
+
+.articles {
+  list-style: none;
+}
+.articles li {
+  max-height: 200px;
+}
+.articles_img {
+  max-height: 150px;
+  border: 1px solid #A0A0A0;
+}
+.articles_deco {
+  background-color: #B0C4DE;
+}
+.articles_price {
+  font-weight: bold;
+  text-align: end;
+  text-decoration: none;
+}
+
+.cart-link {
+  position: relative;
+  right: 0;
+  justify-self: end;
+}
+
+main {
+  background-color: #B0E0E6;
+}
+
+li {
+  margin-bottom: 10px;
+}
+
+a {
+  color: black;
+}
+a:hover {
+  text-decoration: none;
+}
+
+/*# sourceMappingURL=style.css.map */

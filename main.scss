@@ -1,0 +1,71 @@
+﻿$body-background-color: #f3e9f1;
+$main-background-color: #B0E0E6;
+$article-background-color: #B0C4DE;
+
+body {
+    background-color: $body-background-color;
+}
+
+.shop {
+    box-shadow: 0px 0px 12px #bbb;
+    margin-top: 30px;
+    min-height: 600px;
+}
+
+#logo {
+    max-height: 180px;
+}
+
+.legal {
+    text-align: center;
+    font-style: italic;
+    font-size: 0.8em;
+
+    &--heading {
+        margin-top: 30px;
+    }
+}
+
+.articles {
+    list-style: none;
+
+    li {
+        max-height: 200px;
+    }
+
+    &_img {
+        max-height: 150px;
+        border: 1px solid #A0A0A0;
+    }
+
+    &_deco {
+        background-color: $article-background-color;
+    }
+
+    &_price {
+        font-weight: bold;
+        text-align: end;
+        text-decoration: none;
+    }
+}
+
+.cart-link {
+    position : relative;
+    right: 0;
+    justify-self: end;
+}
+main {
+    background-color: $main-background-color;
+}
+
+li {
+    margin-bottom: 10px;
+}
+
+a {
+    color: black;
+
+    &:hover {
+        text-decoration: none;
+    }
+}
