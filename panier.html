@@ -22,6 +22,29 @@
             <ul class="col-12 articles" id="article-list">
                 <!-- Articles genarated dynamically -->
             </ul>
+            <h2>Passer commande :</h2>
+            <p class="col-12 articles_deco">
+                Total de votre commande :
+                <span id="total-price"></span>
+            </p>
+            <form class="col-12 articles_deco" id="commande">
+                <label for="fname">Prénom</label><br />
+                <input type="text" id="fname" name="prenom" placeholder="prénom"><br />
+
+                <label for="lname">Nom</label><br />
+                <input type="text" id="lname" name="nom" placeholder="nom"><br />
+
+                <label for="adress">Adresse</label><br />
+                <input type="text" id="adress" name="adresse" placeholder="1 avenue Degaulle"><br />
+
+                <label for="city">Ville</label><br />
+                <input type="text" id="city" name="ville" placeholder="Paris"><br />
+
+                <label for="mail">Adresse email</label><br />
+                <input type="text" id="mail" name="mail" placeholder=" adresse@gmail.com"><br /><br />
+
+                <input type="submit" value="Valider la commande">
+            </form>
         </section>
     </main>
     <footer class="container">

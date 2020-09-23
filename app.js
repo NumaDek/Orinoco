@@ -46,6 +46,11 @@ async function getUserAsync() {
 	return data;
 }
 
-getUserAsync().then(data => loadArticles(data));
-getUserAsync().catch(data => console.log("Error :" + data));
+//getUserAsync().then(data => loadArticles(data));
 
+async function run() {
+	let data = await getUserAsync();
+	loadArticles(data);
+}
+
+run();
