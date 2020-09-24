@@ -1,10 +1,10 @@
 class Contact {
-	constructor(surname, name, adress, city, mail) {
-		this.surname = surname;
-		this.name = name;
-		this.adress = adress;
+	constructor(lastName, firstName, address, city, email) {
+		this.firstName = firstName;
+		this.lastName = lastName;
+		this.address = address;
 		this.city = city;
-		this.mail = mail;
+		this.email = email;
 	}
 }
 
@@ -41,24 +41,29 @@ class articleHTMLElt {
 	}
 }
 
+async function handleFetch(payload) {
+	let url = 'http://localhost:3000/api/teddies/order';
+	let options = {
+		method: 'POST',
+		headers: { 'Content-Type': 'application/json' },
+		body: payload
+	}
+	response = await fetch(url, options);
+	return (response);
+}
 
-function handleForm(orderList) {
-	const form = document.getElementById('commande');
+function handleForm(products) {
+	const form = document.getElementById('command');
 
 	form.addEventListener('submit', async function (e) {
 		e.preventDefault();
 		let contact = new Contact(form.prenom.value, form.nom.value, form.adresse.value, form.city.value, form.mail.value);
-		//let order = JSON.stringify(contact) + JSON.stringify(orderList);
-		let order = JSON.stringify({ contact, orderList });
+		let order = JSON.stringify({ contact, products });
 		console.log(order);
-		const response = await fetch('http://localhost:3000/api/teddies/order', { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: order });
-		if (response.status === 400) {
-			console.log('Salut');
-        }
-		const data = await response.json();
+		const response = await handleFetch(order);
+		const data = response.json();
 
 		console.log(response);
-		console.log(data.json);
 	});
 }
 
@@ -89,7 +94,7 @@ async function loadCart() {
 	for (order of orderList) {
 		let data = await getUserAsync(order.id);
 		loadArticles(data, order.customisation);
-		dataList.push(data);
+		dataList.push(data._id);
 	}
 	//handleForm(orderList);
 	handleForm(dataList);
