@@ -22,7 +22,7 @@ class articleHTMLElt {
 	configElement(imageUrl, name, description, price, id, custimisation) {
 		this.articleImg.src = imageUrl;
 		this.articleName.innerHTML = name;
-		this.articlePrice.innerHTML = price + ' &#8364';
+		this.articlePrice.innerHTML = (price / 100.00).toFixed(2) + ' &#8364';
 		this.articleCustom.innerHTML = custimisation;
 		this.articleCustom.classList.add('col-1', 'articles_price')
 		this.articleImg.classList.add('articles_img');
@@ -41,35 +41,44 @@ class articleHTMLElt {
 	}
 }
 
+function handleConfirmation(data) {
+	const title = document.getElementById('title');
+	title.innerHTML = 'Confirmation de votre commande :';
+	const cart = document.getElementById('cart');
+	cart.innerHTML = '';
+	const confirmation = document.getElementById('confirmation');
+	confirmation.innerHTML = '</br><p>Nous vous remercions pour votre commande ! Au plaisir de vous retrouver bientot !</p><p>prix total de la commande : ' + (total / 100.00).toFixed(2) + '&#8364</p><p>Adresse de livraison :</br>' + data.contact.lastName + ' ' + data.contact.firstName + '</br>' + data.contact.address + '</br>' + data.contact.city + '</p><p>Identifiant de commande : ' + data.orderId + '</p>';
+	if ((data = localStorage.getItem('order')) != null)
+		localStorage.removeItem('order');
+}
+
 async function handleFetch(payload) {
 	let url = 'http://localhost:3000/api/teddies/order';
-	let options = {
-		method: 'POST',
-		headers: { 'Content-Type': 'application/json' },
-		body: payload
-	}
+	let options = { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: payload };
 	response = await fetch(url, options);
 	return (response);
 }
 
 function handleForm(products) {
 	const form = document.getElementById('command');
-
-	form.addEventListener('submit', async function (e) {
-		e.preventDefault();
-		let contact = new Contact(form.prenom.value, form.nom.value, form.adresse.value, form.city.value, form.mail.value);
-		let order = JSON.stringify({ contact, products });
-		console.log(order);
-		const response = await handleFetch(order);
-		const data = response.json();
-
-		console.log(response);
-	});
+	if (form != null) {
+		form.addEventListener('submit', async function (e) {
+			e.preventDefault();
+			let contact = new Contact(form.prenom.value, form.nom.value, form.adresse.value, form.city.value, form.mail.value);
+			let order = JSON.stringify({ contact, products });
+			const response = await handleFetch(order);
+			const data = await response.json();
+			handleConfirmation(data);
+			console.log(data);
+		});
+	}
+	else
+		console.log('Le panier est vide.');
 }
 
 function loadTotal(total) {
 	const priceBox = document.getElementById('total-price');
-	priceBox.innerHTML = total + '&#8364';
+	priceBox.innerHTML = (total / 100.00).toFixed(2) + '&#8364';
 }
 
 let total = 0;
@@ -80,24 +89,41 @@ let loadArticles = (article, customisation) => {
 }
 
 async function getUserAsync(id) {
-	let response = await fetch('http://localhost:3000/api/teddies/' + id);
-	return data = response.json();
+	try {
+		let response = await fetch('http://localhost:3000/api/teddies/' + id);
+		return data = response.json();
+	}
+	catch {
+		// Le serveur est injoignable, signaler une erreur.
+		console.log('Le serveur est injoignable');
+		return null;
+    }
 }
 
 async function loadCart() {
 	let orderList = [];
-	let total = 0;
 	if ((data = localStorage.getItem('order')) != null) {
 		orderList = JSON.parse(data);
+		let idList = [];
+		for (order of orderList) {
+			let data = await getUserAsync(order.id);
+			if (!data)
+				return (null);
+			loadArticles(data, order.customisation);
+			idList.push(data._id);
+		}
+		handleForm(idList);
 	}
-	let dataList = [];
-	for (order of orderList) {
-		let data = await getUserAsync(order.id);
-		loadArticles(data, order.customisation);
-		dataList.push(data._id);
-	}
-	//handleForm(orderList);
-	handleForm(dataList);
+	else {
+		if (empty = document.getElementById('empty')) {
+			empty.classList.remove('display');
+		}
+		if (cart = document.getElementById('cart')) {
+			cart.parentNode.removeChild(cart);
+		}
+
+		console.log('Le panier est vide.');
+    }
 }
 
 loadCart();

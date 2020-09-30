@@ -35,7 +35,7 @@ class articleHTMLElt {
 		this.articleImg.src = imageUrl;
 		this.articleName.innerHTML = name;
 		this.articleDescription.innerHTML = description;
-		this.articlePrice.innerHTML = price + ' &#8364';
+		this.articlePrice.innerHTML = (price / 100.00).toFixed(2) + ' &#8364';
 		this.articleImg.classList.add('articles_img');
 		this.articleFigure.classList.add('col-3');
 		this.formatArticle.classList.add('col-5');
@@ -109,10 +109,22 @@ let loadArticle = (article) => {
 
 async function getUserAsync() {
 	let url = window.location.href.split('?');
-	let response = await fetch('http://localhost:3000/api/teddies/' + url[1]);
-	let data = await response.json();
-	return data;
+	try {
+		let response = await fetch('http://localhost:3000/api/teddies/' + url[1]);
+		let data = await response.json();
+		return data;
+	}
+	catch {
+		// Le serveur est injoignable, signaler une erreur.
+		console.log('Le serveur est injoignable');
+		return null;
+	}
 }
 
-getUserAsync().then(data => loadArticle(data));
-getUserAsync().catch(data => console.log("Error :" + data));
+async function run() {
+	data = await getUserAsync()
+	if (data)
+		loadArticle(data);
+}
+
+run();

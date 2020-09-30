@@ -8,7 +8,7 @@
     <title>Orinoco : Boutique en ligne</title>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
     <link href="style.css" rel="stylesheet">
-    <script src="panier.js"></script>
+    <script src="panier.js" defer></script>
 </head>
 <body>
     <header class="container">
@@ -17,34 +17,41 @@
         </div>
     </header>
     <main class="container">
-        <section class="row justify-content-center align-items-start shop">
-            <h2> Panier :</h2>
+        <section class="row justify-content-center align-items-start shop" id="main-section">
+            <h2 id="title"> Panier :</h2><br />
+            <div class="col-12" id="confirmation"></div>
+            <div class="display" id="empty">
+                <img src="img/cart_empty.png" alt="cart is empty." class="png"/>
+            </div>
             <ul class="col-12 articles" id="article-list">
                 <!-- Articles genarated dynamically -->
             </ul>
-            <h2>Passer commande :</h2>
-            <p class="col-12 articles_deco">
-                Total de votre commande :
-                <span id="total-price"></span>
-            </p>
-            <form class="col-12 articles_deco" id="command">
-                <label for="fname">Prénom</label><br />
-                <input type="text" id="fname" name="prenom" placeholder="prénom"><br />
+            <div id="cart">
+                <h2>Passer commande :</h2>
+                <p class="col-12 articles_deco" id="total">
+                    Total de votre commande :
+                    <span id="total-price"></span>
+                </p>
+                <form class="col-12 articles_deco" id="command">
+                    <label for="fname">Prénom</label><br />
+                    <input type="text" id="fname" name="prenom" placeholder="prénom" required><br />
 
-                <label for="lname">Nom</label><br />
-                <input type="text" id="lname" name="nom" placeholder="nom"><br />
+                    <label for="lname">Nom</label><br />
+                    <input type="text" id="lname" name="nom" placeholder="nom" required><br />
 
-                <label for="adress">Adresse</label><br />
-                <input type="text" id="adress" name="adresse" placeholder="1 avenue Degaulle"><br />
+                    <label for="adress">Adresse</label><br />
+                    <input type="text" id="adress" name="adresse" placeholder="1 avenue Degaulle" required><br />
 
-                <label for="city">Ville</label><br />
-                <input type="text" id="city" name="ville" placeholder="Paris"><br />
+                    <label for="city">Ville</label><br />
+                    <input type="text" id="city" name="ville" placeholder="Paris" required><br />
 
-                <label for="mail">Adresse email</label><br />
-                <input type="text" id="mail" name="mail" placeholder=" adresse@gmail.com"><br /><br />
+                    <label for="mail">Adresse email</label><br />
+                    <input type="email" id="mail" name="mail" placeholder=" adresse@gmail.com" required><br /><br />
 
-                <input type="submit" value="Valider la commande">
-            </form>
+                    <input type="submit" value="Valider la commande">
+                </form>
+                <!--<p>Nous vous remercion pour votre commande ! Au plaisir de vous retrouver bientot !</p><p>prix total de la commande :</p><p>Adresse de livraison :</p><p>Identifiant de commande :</p>-->
+            </div>
         </section>
     </main>
     <footer class="container">
