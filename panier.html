@@ -11,17 +11,18 @@
     <script src="panier.js" defer></script>
 </head>
 <body>
-    <header class="container">
-        <div class="row justify-content-center">
-            <img src="img/Orinoco_logo.png" alt="Logo d'Orinoco." id="logo" />
-        </div>
+    <header class="container container__header">
+        <figure><img src="img/Orinoco_logo.png" alt="Logo d'Orinoco, boutique de vente en ligne." class="logo" /></figure>
+        <nav>
+            <a href="index.html"><figure><img src="img/home.jpg" alt="Panier." class="cart logo" /></figure></a>
+        </nav>
     </header>
     <main class="container">
         <section class="row justify-content-center align-items-start shop" id="main-section">
             <h2 id="title"> Panier :</h2><br />
             <div class="col-12" id="confirmation"></div>
             <div class="display" id="empty">
-                <img src="img/cart_empty.png" alt="cart is empty." class="png"/>
+                <img src="img/cart_empty.png" alt="cart is empty." class="png" />
             </div>
             <ul class="col-12 articles" id="article-list">
                 <!-- Articles genarated dynamically -->

@@ -121,7 +121,6 @@ async function loadCart() {
 		if (cart = document.getElementById('cart')) {
 			cart.parentNode.removeChild(cart);
 		}
-
 		console.log('Le panier est vide.');
     }
 }
