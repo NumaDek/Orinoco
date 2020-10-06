@@ -1,10 +1,15 @@
 body {
   background-color: #f3e9f1;
+  font-family: "Indie Flower", cursive;
+  font-weight: bold;
+  font-size: 1.2em;
 }
 
 .shop {
+  background-color: #B0E0E6;
   box-shadow: 0px 0px 12px #bbb;
   min-height: 600px;
+  border-radius: 15px;
 }
 
 .flex {
@@ -28,29 +33,39 @@ body {
   list-style: none;
 }
 .articles li {
-  max-height: 200px;
+  max-height: 230px;
+}
+.articles_img-box {
+  display: flex;
+  justify-content: center;
 }
 .articles_img {
-  max-height: 150px;
+  max-height: 200px;
   border: 1px solid #a0a0a0;
+  margin-top: 15px;
+  margin-bottom: 15px;
+  border-radius: 15px;
 }
 .articles_deco {
   background-color: #B0C4DE;
+  align-items: center;
+  border-radius: 15px;
+  transition: ease 400ms;
+}
+.articles_deco:hover {
+  background-color: #d7e0ee;
 }
 .articles_price {
   font-weight: bold;
   text-align: end;
   text-decoration: none;
 }
-
-.cart-link {
-  position: relative;
-  right: 0;
-  justify-self: end;
+.articles a:hover {
+  background-color: #d7e0ee;
 }
 
-main {
-  background-color: #B0E0E6;
+.cart:hover {
+  opacity: 0.5;
 }
 
 li {

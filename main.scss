@@ -1,14 +1,21 @@
 ﻿$body-background-color: #f3e9f1;
 $main-background-color: #B0E0E6;
 $article-background-color: #B0C4DE;
+$article-background-color-light: #d7e0ee;
+$font: 'Indie Flower', cursive;
 
 body {
     background-color: $body-background-color;
+    font-family: $font;
+    font-weight: bold;
+    font-size: 1.2em;
 }
 
 .shop {
+    background-color: $main-background-color;
     box-shadow: 0px 0px 12px #bbb;
     min-height: 600px;
+    border-radius: 15px;
 }
 
 .flex {
@@ -33,16 +40,31 @@ body {
     list-style: none;
 
     li {
-        max-height: 200px;
+        max-height: 230px;
+    }
+
+    &_img-box {
+        display: flex;
+        justify-content: center;
     }
 
     &_img {
-        max-height: 150px;
+        max-height: 200px;
         border: 1px solid #a0a0a0;
+        margin-top: 15px;
+        margin-bottom: 15px;
+        border-radius: 15px;
     }
 
     &_deco {
         background-color: $article-background-color;
+        align-items: center;
+        border-radius: 15px;
+        transition: ease 400ms;
+
+        &:hover {
+            background-color: $article-background-color-light;
+        }
     }
 
     &_price {
@@ -50,15 +72,16 @@ body {
         text-align: end;
         text-decoration: none;
     }
+
+    & a:hover {
+        background-color: $article-background-color-light;
+    }
 }
 
-.cart-link {
-    position : relative;
-    right: 0;
-    justify-self: end;
-}
-main {
-    background-color: $main-background-color;
+.cart {
+    &:hover {
+        opacity: 0.5;
+    }
 }
 
 li {

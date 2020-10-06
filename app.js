@@ -17,8 +17,8 @@ class articleHTMLElt {
 		this.articleDescription.innerHTML = description;
 		this.articlePrice.innerHTML = (price / 100.00).toFixed(2) + ' &#8364';
 		this.articleImg.classList.add('articles_img');
-		this.articleFigure.classList.add('col-3');
-		this.formatArticle.classList.add('col-7');
+		this.articleFigure.classList.add('col-4', 'articles_img-box');
+		this.formatArticle.classList.add('col-5');
 		this.articlePrice.classList.add('col-2', 'articles_price');
 		this.articleFigure.appendChild(this.articleImg);
 		this.formatArticle.appendChild(this.articleName);
