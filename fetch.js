@@ -11,8 +11,7 @@ async function handleFetch(url) {
 		return response.json();
 	}
 	catch {
-		// Le serveur est injoignable, signaler une erreur.
-		console.log('Le serveur est injoignable');
+		error.classList.remove('display');
 		return null;
 	}
 }

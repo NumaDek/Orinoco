@@ -34,7 +34,7 @@ class articleHTMLElt {
 	}
 }
 
-function handleConfirmation(data) {
+function handleConfirmation(data, total) {
 	const title = document.getElementById('title');
 	const cart = document.getElementById('cart');
 	const confirmation = document.getElementById('confirmation');
@@ -46,7 +46,7 @@ function handleConfirmation(data) {
 		localStorage.removeItem('order');
 }
 
-function handleCartForm(products) {
+function handleCartForm(products, total) {
 	const form = document.getElementById('command');
 	form.addEventListener('submit', async function (e) {
 		e.preventDefault();
@@ -72,7 +72,7 @@ async function loadCart() {
 		}
 		const priceBox = document.getElementById('total-price');
 		priceBox.innerHTML = (total / 100.00).toFixed(2) + '&#8364';
-		handleCartForm(idList);
+		handleCartForm(idList, total);
 	}
 	else {
 		empty.classList.remove('display');

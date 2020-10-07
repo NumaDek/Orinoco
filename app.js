@@ -37,19 +37,6 @@ class articleHTMLElt {
     }
 }
 
-
-function configClasses() {
-
-}
-
-function createElement() {
-
-}
-
-function configElement() {
-	
-}
-
 async function loadArticles() {
 	if (articles = await handleFetch('http://localhost:3000/api/teddies'))
 		for (article of articles)

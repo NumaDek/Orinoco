@@ -1,3 +1,11 @@
+function addItemToCart(id, customisation) {
+	let orderList = [];
+	if ((data = localStorage.getItem('order')) != null)
+		orderList = JSON.parse(data);
+	orderList.push({ 'id': id, 'customisation': customisation });
+	localStorage.setItem('order', JSON.stringify(orderList));
+}
+
 class articleHTMLElt {
 	constructor() {
 		this.listElt = document.createElement('li');
@@ -15,19 +23,11 @@ class articleHTMLElt {
 		this.formButton = document.createElement('input');
 	}
 
-	addItemToCart(id, customisation) {
-		let orderList = [];
-		if ((data = localStorage.getItem('order')) != null)
-			orderList = JSON.parse(data);
-		orderList.push({ 'id': id, 'customisation': customisation });
-		localStorage.setItem('order', JSON.stringify(orderList));
-	}
-
 	handleFormEvent(form, id) {
 		form.addEventListener('submit', function (e) {
 			e.preventDefault();
-			customisation = form.custom.options[form.custom.selectedIndex].text;
-			this.addItemToCart(id, customisation);
+			let customisation = form.custom.options[form.custom.selectedIndex].text;
+			addItemToCart(id, customisation);
 		});
 	}
 
