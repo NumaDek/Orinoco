@@ -10,6 +10,8 @@ body {
   box-shadow: 0px 0px 12px #bbb;
   min-height: 600px;
   border-radius: 15px;
+  padding-bottom: 15px;
+  padding-top: 15px;
 }
 
 .flex {
@@ -60,8 +62,16 @@ body {
   border-radius: 15px;
   transition: ease 400ms;
 }
+.articles_deco-cart {
+  margin-right: 15px;
+  margin-left: 15px;
+}
 .articles_deco-effect:hover {
   background-color: #d7e0ee;
+}
+.articles_deco-form {
+  padding-top: 15px;
+  padding-bottom: 15px;
 }
 .articles_price {
   font-weight: bold;
@@ -85,6 +95,11 @@ a:hover {
   color: black;
 }
 
+.breathe {
+  margin-top: 15px;
+  margin-bottom: 15px;
+}
+
 .png {
   background-color: darkcyan;
   border-radius: 10%;
@@ -100,68 +115,5 @@ a:hover {
   align-items: center;
   width: 100%;
 }
-
-/*.color {
-    background-color: orange;
-}
-
-body {
-    background-color: $body-background-color;
-    width: 70%;
-    margin:auto;
-}
-
-.container {
-    display: flex;
-
-    &__body {
-        flex-wrap: wrap;
-        justify-content: center;
-    }
-
-
-    &__main {
-    }
-
-    &__section {
-        justify-content: center;
-        align-content: start;
-        flex-wrap: wrap;
-        background-color: $main-background-color;
-        min-height: 600px;
-    }
-
-    &__article {
-        justify-content: space-around;
-        flex-wrap: wrap;
-        background-color: black;
-    }
-
-    &__box {
-        justify-content: start;
-        background-color: cyan;
-        width: 300px;
-        color: black;
-        margin: 30px 0 30px 0;
-        &--text {
-            flex-direction: column;
-            align-items: end;
-            align-content: end;
-        }
-    }
-}
-
-.logo {
-    width: 200px;
-}
-
-.cart {
-    width: 40px;
-}
-
-h2 {
-    margin-top: 2px;
-    margin-bottom: 2px;
-}*/
 
 /*# sourceMappingURL=style.css.map */
