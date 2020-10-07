@@ -25,6 +25,7 @@ class articleHTMLElt {
 		this.articlePrice = document.createElement('p');
 		this.formatArticle = document.createElement('article');
 		this.formatDiv = document.createElement('div');
+		this.formatAside = document.createElement('aside');
 
 		this.form = document.createElement('form');
 		this.formMenu = document.createElement('select');
@@ -37,15 +38,18 @@ class articleHTMLElt {
 		this.articleDescription.innerHTML = description;
 		this.articlePrice.innerHTML = (price / 100.00).toFixed(2) + ' &#8364';
 		this.articleImg.classList.add('articles_img');
-		this.articleFigure.classList.add('col-3');
+		this.articleFigure.classList.add('col-4', 'articles_img-box');
 		this.formatArticle.classList.add('col-5');
-		this.articlePrice.classList.add('col-1', 'articles_price');
+		this.articlePrice.classList.add('articles_price');
 		this.articleFigure.appendChild(this.articleImg);
 		this.formatArticle.appendChild(this.articleName);
 		this.formatArticle.appendChild(this.articleDescription);
 		this.listElt.appendChild(this.articleFigure)
 		this.listElt.appendChild(this.formatArticle);
-		this.listElt.appendChild(this.articlePrice);
+
+		this.formatAside.appendChild(this.articlePrice);
+		this.formatAside.appendChild(this.form);
+		this.listElt.appendChild(this.formatAside);
 		this.listElt.classList.add('row', 'no-gutters', 'articles_deco');
 		this.formButton.id = 'form-button';
 		this.formButton.value = 'Ajouter au panier';
@@ -63,7 +67,6 @@ class articleHTMLElt {
 			console.log('Problème de serveur');
 		this.form.appendChild(this.formMenu);
 		this.form.appendChild(this.formButton);
-		this.listElt.appendChild(this.form);
 		const articleList = document.getElementById('article-list');
 		articleList.appendChild(this.listElt);
 

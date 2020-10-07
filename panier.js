@@ -24,17 +24,17 @@ class articleHTMLElt {
 		this.articleName.innerHTML = name;
 		this.articlePrice.innerHTML = (price / 100.00).toFixed(2) + ' &#8364';
 		this.articleCustom.innerHTML = custimisation;
-		this.articleCustom.classList.add('col-1', 'articles_price')
-		this.articleImg.classList.add('articles_img');
-		this.articleFigure.classList.add('col-3');
-		this.formatArticle.classList.add('col-2');
-		this.articlePrice.classList.add('col-1', 'articles_price');
+		this.articleImg.classList.add('articles_img', 'articles_img-cart');
+		this.articleFigure.classList.add('col-2', 'articles_img-box');
+		this.formatArticle.classList.add('col-3');
+		this.articlePrice.classList.add('col-4', 'articles_price');
+		this.articleCustom.classList.add('col-2', 'articles_price');
 		this.articleFigure.appendChild(this.articleImg);
 		this.formatArticle.appendChild(this.articleName);
 		this.listElt.appendChild(this.articleFigure)
 		this.listElt.appendChild(this.formatArticle);
-		this.listElt.appendChild(this.articlePrice);
 		this.listElt.appendChild(this.articleCustom);
+		this.listElt.appendChild(this.articlePrice);
 		this.listElt.classList.add('row', 'no-gutters', 'articles_deco');
 		const articleList = document.getElementById('article-list');
 		articleList.appendChild(this.listElt);

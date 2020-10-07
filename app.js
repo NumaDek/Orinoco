@@ -26,7 +26,7 @@ class articleHTMLElt {
 		this.listElt.appendChild(this.articleFigure)
 		this.listElt.appendChild(this.formatArticle);
 		this.listElt.appendChild(this.articlePrice);
-		this.listElt.classList.add('row', 'no-gutters', 'articles_deco');
+		this.listElt.classList.add('row', 'no-gutters', 'articles_deco', 'articles_deco-effect');
 
 		const articleList = document.getElementById('article-list');
 		articleList.appendChild(this.productLink);

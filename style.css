@@ -35,6 +35,9 @@ body {
 .articles li {
   max-height: 230px;
 }
+.articles-cart li {
+  max-height: 90px;
+}
 .articles_img-box {
   display: flex;
   justify-content: center;
@@ -46,13 +49,18 @@ body {
   margin-bottom: 15px;
   border-radius: 15px;
 }
+.articles_img-cart {
+  max-height: 80px;
+  margin-top: 5px;
+  margin-bottom: 5px;
+}
 .articles_deco {
   background-color: #B0C4DE;
   align-items: center;
   border-radius: 15px;
   transition: ease 400ms;
 }
-.articles_deco:hover {
+.articles_deco-effect:hover {
   background-color: #d7e0ee;
 }
 .articles_price {
@@ -60,12 +68,9 @@ body {
   text-align: end;
   text-decoration: none;
 }
-.articles a:hover {
-  background-color: #d7e0ee;
-}
 
 .cart:hover {
-  opacity: 0.5;
+  opacity: 0.3;
 }
 
 li {

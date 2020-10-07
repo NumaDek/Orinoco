@@ -43,6 +43,10 @@ body {
         max-height: 230px;
     }
 
+    &-cart li {
+        max-height: 90px;
+    }
+
     &_img-box {
         display: flex;
         justify-content: center;
@@ -54,6 +58,12 @@ body {
         margin-top: 15px;
         margin-bottom: 15px;
         border-radius: 15px;
+
+        &-cart {
+            max-height: 80px;
+            margin-top: 5px;
+            margin-bottom: 5px;
+        }
     }
 
     &_deco {
@@ -62,7 +72,7 @@ body {
         border-radius: 15px;
         transition: ease 400ms;
 
-        &:hover {
+        &-effect:hover {
             background-color: $article-background-color-light;
         }
     }
@@ -72,15 +82,11 @@ body {
         text-align: end;
         text-decoration: none;
     }
-
-    & a:hover {
-        background-color: $article-background-color-light;
-    }
 }
 
 .cart {
     &:hover {
-        opacity: 0.5;
+        opacity: 0.3;
     }
 }
 
