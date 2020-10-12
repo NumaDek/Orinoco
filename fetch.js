@@ -1,8 +1,14 @@
 async function handlePostFetch(payload) {
 	let url = 'http://localhost:3000/api/teddies/order';
 	let options = { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: payload };
-	response = await fetch(url, options);
-	return (response);
+	try {
+		response = await fetch(url, options);
+		return (response);
+	}
+	catch {
+		error.classList.remove('display');
+		return null;
+    }
 }
 
 async function handleFetch(url) {

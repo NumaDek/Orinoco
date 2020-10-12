@@ -55,9 +55,10 @@ function handleCartForm(products, total) {
 		e.preventDefault();
 		let contact = { 'firstName': form.prenom.value, 'lastName': form.nom.value, 'address': form.adresse.value, 'city': form.city.value, 'email': form.mail.value };
 		let order = JSON.stringify({ contact, products });
-		const response = await handlePostFetch(order);
+		if (!(response = await handlePostFetch(order)))
+			return null;
 		const data = await response.json();
-		handleConfirmation(data);
+		handleConfirmation(data, total);
 	});
 }
 
