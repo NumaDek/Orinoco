@@ -1,3 +1,4 @@
+/* Generated HTML element from API info */
 class articleHTMLElt {
 	constructor() {
 		this.productLink = document.createElement('a');
@@ -37,6 +38,7 @@ class articleHTMLElt {
     }
 }
 
+/* Requesting info from API and integrating it */
 async function loadArticles() {
 	if (articles = await handleFetch('http://localhost:3000/api/teddies'))
 		for (article of articles)

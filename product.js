@@ -1,3 +1,4 @@
+/* Store order information into local storage. */
 function addItemToCart(id, customisation) {
 	let orderList = [];
 	if ((data = localStorage.getItem('order')) != null)
@@ -6,6 +7,8 @@ function addItemToCart(id, customisation) {
 	localStorage.setItem('order', JSON.stringify(orderList));
 }
 
+/* Generated HTML element from API info. */
+/* Handle customization information through form. */
 class articleHTMLElt {
 	constructor() {
 		this.listElt = document.createElement('li');
@@ -75,6 +78,7 @@ class articleHTMLElt {
 	}
 }
 
+/* Requesting info from API and integrating it */
 async function loadArticles() {
 	let url = window.location.href.split('?');
 	if ((article = await handleFetch('http://localhost:3000/api/teddies/' + url[1])))

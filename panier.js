@@ -1,3 +1,4 @@
+/* Generated HTML element from API info */
 class articleHTMLElt {
 	constructor() {
 		this.listElt = document.createElement('li');
@@ -34,6 +35,7 @@ class articleHTMLElt {
 	}
 }
 
+/* displays order confirmation text */
 function handleConfirmation(data, total) {
 	const title = document.getElementById('title');
 	const cart = document.getElementById('cart');
@@ -46,6 +48,7 @@ function handleConfirmation(data, total) {
 		localStorage.removeItem('order');
 }
 
+/* Ordering form handling. */ 
 function handleCartForm(products, total) {
 	const form = document.getElementById('command');
 	form.addEventListener('submit', async function (e) {
@@ -58,6 +61,7 @@ function handleCartForm(products, total) {
 	});
 }
 
+/* Loads order info from local storage, requests info from API and integrating it. */
 async function loadCart() {
 	if (data = localStorage.getItem('order')) {
 		let orderList = JSON.parse(data);
