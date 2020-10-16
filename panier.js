@@ -17,11 +17,11 @@ class articleHTMLElt {
 		this.articleCustom.innerHTML = custimisation;
 
 		this.articleImg.classList.add('articles_img', 'articles_img-cart');
-		this.articleFigure.classList.add('col-2', 'articles_img-box');
-		this.formatArticle.classList.add('col-3');
-		this.articlePrice.classList.add('col-4', 'articles_price');
-		this.articleCustom.classList.add('col-2', 'articles_price');
-		this.listElt.classList.add('row', 'no-gutters', 'articles_deco');
+		this.articleFigure.classList.add('col-md-3', 'col-6', 'articles_img-box');
+		this.formatArticle.classList.add('col-md-3', 'col-6');
+		this.articlePrice.classList.add('col-md-4', 'col-6', 'articles_price');
+		this.articleCustom.classList.add('col-md-2', 'col-6', 'articles_price');
+		this.listElt.classList.add('row', 'articles_deco');
 
 		this.articleFigure.appendChild(this.articleImg);
 		this.formatArticle.appendChild(this.articleName);

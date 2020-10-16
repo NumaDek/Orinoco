@@ -19,10 +19,10 @@ class articleHTMLElt {
 		this.articlePrice.innerHTML = (price / 100.00).toFixed(2) + ' &#8364';
 
 		this.articleImg.classList.add('articles_img');
-		this.articleFigure.classList.add('col-4', 'articles_img-box');
-		this.formatArticle.classList.add('col-5');
-		this.articlePrice.classList.add('col-2', 'articles_price');
-		this.listElt.classList.add('row', 'no-gutters', 'articles_deco', 'articles_deco-effect');
+		this.articleFigure.classList.add('col-lg-4', 'col-12', 'articles_img-box');
+		this.formatArticle.classList.add('col-lg-5', 'col-12');
+		this.articlePrice.classList.add('col-lg-2', 'col-12', 'articles_price');
+		this.listElt.classList.add('row', 'articles_deco', 'articles_deco-effect');
 
 		this.articleFigure.appendChild(this.articleImg);
 		this.formatArticle.appendChild(this.articleName);
